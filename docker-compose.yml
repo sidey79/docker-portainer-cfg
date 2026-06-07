@@ -1,0 +1,22 @@
+services:
+  portainer:
+    image: portainer/portainer-ee:latest
+    container_name: portainer
+    restart: always
+    network_mode: bridge
+    cgroup: host
+    command:
+      - --sslcert
+      - /certs/zeus.crt
+      - --sslkey
+      - /certs/zeus.key
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+      - /opt/docker/rootca/zeus:/certs
+
+volumes:
+  portainer_data:
+    external: true
