@@ -1,6 +1,6 @@
 services:
   portainer:
-    image: portainer/portainer-ee:2.39.2
+    image: portainer/portainer-ee:2.44.0
     container_name: portainer
     restart: always
     network_mode: bridge
