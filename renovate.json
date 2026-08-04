@@ -6,5 +6,17 @@
   "dependencyDashboard": true,
   "docker-compose": {
     "enabled": true
-  }
+  },
+  "packageRules": [
+    {
+      "description": "Pin and update the Portainer LTS image digest",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "portainer/portainer-ee"
+      ],
+      "pinDigests": true
+    }
+  ]
 }
