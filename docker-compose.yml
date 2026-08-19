@@ -6,9 +6,9 @@ services:
     network_mode: bridge
     cgroup: host
     command:
-      - --sslcert
+      - --tlscert
       - /certs/zeus.crt
-      - --sslkey
+      - --tlskey
       - /certs/zeus.key
     ports:
       - "9443:9443"
