@@ -17,6 +17,15 @@
         "portainer/portainer-ee"
       ],
       "pinDigests": true
+    },
+    {
+      "description": "Merge Docker image updates once they are three days old. A digest update on a floating tag such as lts has no matching version to age against, and timestamp-required would hold it back forever, so fall back to raising it without the age check.",
+      "matchDatasources": [
+        "docker"
+      ],
+      "automerge": true,
+      "minimumReleaseAge": "3 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ]
 }
