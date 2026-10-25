@@ -1,0 +1,8 @@
+rules:
+  no-unbound-port-interfaces: 0
+  # Adding a top-level name would change the Compose project name used by the
+  # server's `docker compose up -d` and recreate the container under a new project.
+  require-project-name-field: 0
+  require-quotes-in-ports:
+    - 1
+    - quoteType: double

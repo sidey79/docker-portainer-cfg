@@ -2,20 +2,20 @@ services:
   portainer:
     image: portainer/portainer-ee:lts@sha256:64593d0645eec314e84b93c03aba51db67c72ec12c760927335b52b1652765d7
     container_name: portainer
-    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data # /var/lib/docker/volumes/portainer_data/_data
+      - /opt/docker/rootca/zeus:/certs
+    ports:
+      - "9443:9443"
     network_mode: bridge
-    cgroup: host
     command:
       - --tlscert
       - /certs/zeus.crt
       - --tlskey
       - /certs/zeus.key
-    ports:
-      - "9443:9443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data # /var/lib/docker/volumes/portainer_data/_data
-      - /opt/docker/rootca/zeus:/certs
+    restart: always
+    cgroup: host
 
 volumes:
   portainer_data:
