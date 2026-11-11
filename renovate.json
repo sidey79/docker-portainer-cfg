@@ -4,7 +4,9 @@
     "config:recommended",
     "helpers:pinGitHubActionDigests"
   ],
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "docker-compose": {
     "enabled": true
   },
